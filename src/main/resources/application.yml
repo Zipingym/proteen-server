@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Ajiseok!3676
+    url: jdbc:mysql://localhost:3306/proteen
+  jpa:
+    show-sql: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
