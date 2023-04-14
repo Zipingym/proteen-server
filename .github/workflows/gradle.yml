@@ -31,14 +31,14 @@ jobs:
       
     # 디렉토리 생성
     - name: Make Directory
-      run: mkdir -p deploy
+      run: mkdir -p proteen
         
     # Jar 파일 복사
     - name: Copy Jar
-      run: cp ./build/libs/*.jar ./deploy
+      run: cp ./build/libs/*.jar ./proteen
 
     - name: Make zip file
-      run: zip -r ./coinTalk.zip ./deploy
+      run: zip -r ./coinTalk.zip ./proteen
       shell: bash
 
     - name: Configure AWS credentials
