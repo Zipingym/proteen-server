@@ -1,11 +1,15 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: Ajiseok!3676
-    url: jdbc:mysql://localhost:3306/proteen
+    username: admin
+    password: De^ga^ja12
+    url: jdbc:mysql://dev.db.proteen.degaja.com/proteen
   jpa:
     show-sql: false
     generate-ddl: true
     hibernate:
       ddl-auto: update
+jwt:
+  secret:
+    access-key: test
+    refresh-key: test
