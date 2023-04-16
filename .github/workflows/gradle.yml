@@ -60,5 +60,5 @@ jobs:
         --application-name proteen \
         --deployment-group-name proteenGroup \
         --file-exists-behavior OVERWRITE \
-        --s3-location bucket=cointalk-degaja, bundleType=zip, key=proteen.zip \ 
+        --s3-location bucket=cointalk-degaja,bundleType=zip,key=proteen.zip \
         --region ap-northeast-2
