@@ -9,5 +9,4 @@ class ProteenApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
