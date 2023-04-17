@@ -36,10 +36,10 @@ jobs:
       run: cp ./build/libs/*.jar ./proteen
 
     - name: Copy appspec.yml
-      run: cp appspec.yml ./deploy
+      run: cp appspec.yml ./proteen
 
     - name: Copy script
-      run: cp ./scripts/*.sh ./deploy
+      run: cp ./scripts/*.sh ./proteen
 
     - name: Make zip file
       run: zip -r ./proteen.zip ./proteen
