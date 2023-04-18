@@ -43,14 +43,4 @@ public class S3Uploader {
         }
         return null;
     }
-
-    public String getImageUrl(Long postId) {
-        try {
-            return amazonS3Client.getUrl(bucket, "image/image_"+postId).toString();
-        } catch (AmazonS3Exception e) {
-            return null;
-        } finally {
-            amazonS3Client.shutdown();
-        }
-    }
 }
