@@ -8,6 +8,7 @@ import com.proteen.proteen.global.annotation.CheckToken;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -21,8 +22,8 @@ public class ExerciseController {
     @CheckToken
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void register(@RequestBody CreateRequest request, @RequestAttribute User user) {
-        exerciseService.register(request, user);
+    public void register(@RequestPart(value = "request") CreateRequest request, @RequestPart(value = "file", required = false) MultipartFile file, @RequestAttribute User user) {
+        exerciseService.register(request, file, user);
     }
 
     @CheckToken

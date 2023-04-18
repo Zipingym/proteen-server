@@ -19,7 +19,7 @@ public class CreateRequest {
 
     private double score;
 
-    private Time time;
+    private String time;
 
     private int calorie;
 }

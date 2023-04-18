@@ -24,9 +24,11 @@ public class Exercise {
 
     private ExerciseType exerciseType;
 
+    private String videoUrl;
+
     private double score;
 
-    private Time time;
+    private String time;
 
     private int calorie;
 
@@ -39,12 +41,14 @@ public class Exercise {
     }
 
     @Builder
-    public Exercise(String title, String body, ExerciseType exerciseType, double score, Time time, int calorie) {
+    public Exercise(String title, String body, ExerciseType exerciseType, String videoUrl, double score, String  time, int calorie, User user) {
         this.title = title;
         this.body = body;
         this.exerciseType = exerciseType;
+        this.videoUrl = videoUrl;
         this.score = score;
         this.time = time;
         this.calorie = calorie;
+        this.user = user;
     }
 }
