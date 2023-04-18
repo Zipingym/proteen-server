@@ -33,7 +33,8 @@ public class AuthInterceptor implements HandlerInterceptor {
         }
 
         String token = jwt.extract(request, "Bearer");
-        if (token.equals("")) {
+
+        if (token == null || token.length() == 0) {
             throw TokenNotFoundException.EXCEPTION;
         }
 
