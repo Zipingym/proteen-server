@@ -1,6 +1,5 @@
 package com.proteen.proteen.domain.user.presentation.dto.request;
 
-import com.proteen.proteen.domain.user.domain.type.Gender;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,5 +15,5 @@ public class CreateUserRequest {
 
     private int age;
 
-    private Gender gender;
+    private String gender;
 }

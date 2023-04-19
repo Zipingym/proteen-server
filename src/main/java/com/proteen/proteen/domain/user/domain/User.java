@@ -1,6 +1,5 @@
 package com.proteen.proteen.domain.user.domain;
 
-import com.proteen.proteen.domain.user.domain.type.Gender;
 import com.proteen.proteen.domain.user.exception.SameOfPreviousPasswordException;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -24,7 +23,7 @@ public class User {
 
     private int age;
 
-    private Gender gender;
+    private String gender;
 
     public void updatePassword(String previousPassword, String newPassword) {
         if (previousPassword.equals(newPassword)){
@@ -34,7 +33,7 @@ public class User {
     }
 
     @Builder
-    public User(String id, String password, String name, int age, Gender gender) {
+    public User(String id, String password, String name, int age, String gender) {
         this.id = id;
         this.password = password;
         this.name = name;
