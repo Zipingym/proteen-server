@@ -3,6 +3,7 @@ package com.proteen.proteen.domain.user.service;
 import com.proteen.proteen.domain.user.domain.User;
 import com.proteen.proteen.domain.user.domain.repository.UserRepository;
 import com.proteen.proteen.domain.user.exception.UserIdExistsException;
+import com.proteen.proteen.domain.user.exception.UserNameExistsException;
 import com.proteen.proteen.domain.user.exception.UserNotFoundException;
 import com.proteen.proteen.domain.user.exception.UserPasswordMatchException;
 import com.proteen.proteen.domain.user.presentation.dto.request.CreateUserRequest;
@@ -26,6 +27,10 @@ public class UserService {
 
         if (userRepository.existsById(request.getId())) {
             throw UserIdExistsException.EXCEPTION;
+        }
+
+        if (userRepository.existsById(request.getName())) {
+            throw UserNameExistsException.EXCEPTION;
         }
 
         User user = User.builder()
