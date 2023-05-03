@@ -38,12 +38,15 @@ public class Exercise {
         this.user = user;
     }
 
+    public void injectFile(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
     @Builder
-    public Exercise(String title, String body, ExerciseType exerciseType, String videoUrl, double score, String  time, int calorie, User user) {
+    public Exercise(String title, String body, ExerciseType exerciseType, double score, String  time, int calorie, User user) {
         this.title = title;
         this.body = body;
         this.exerciseType = exerciseType;
-        this.videoUrl = videoUrl;
         this.score = score;
         this.time = time;
         this.calorie = calorie;

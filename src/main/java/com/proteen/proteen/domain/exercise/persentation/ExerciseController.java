@@ -22,8 +22,15 @@ public class ExerciseController {
     @CheckToken
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void register(@RequestPart(value = "request") CreateRequest request, @RequestPart(value = "file", required = false) MultipartFile file, @RequestAttribute User user) {
-        exerciseService.register(request, file, user);
+    public void register(@RequestBody CreateRequest request, @RequestAttribute User user) {
+        exerciseService.register(request, user);
+    }
+
+    @PostMapping("/{exerciseId}")
+    @ResponseStatus(HttpStatus.OK)
+    public void videoRegister(@RequestPart(value = "file", required = false) MultipartFile file,
+                              @PathVariable(name = "exerciseId") Long exerciseId) {
+        exerciseService.videoUpload(exerciseId, file);
     }
 
     @CheckToken

@@ -1,7 +1,6 @@
 package com.proteen.proteen.global.s3;
 
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
@@ -21,7 +20,7 @@ public class S3Uploader {
     @Value("${cloud.aws.s3.bucket}")
     private String bucket;
 
-    public String uploadImage(MultipartFile file) {
+    public String uploadVideos(MultipartFile file) {
         try {
             String originName = UUID.randomUUID().toString();
             long size = file.getSize();
