@@ -43,6 +43,21 @@ public class Exercise extends BaseTimeEntity {
         this.videoUrl = videoUrl;
     }
 
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "exerciseId=" + exerciseId +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                ", exerciseType=" + exerciseType +
+                ", videoUrl='" + videoUrl + '\'' +
+                ", score=" + score +
+                ", time='" + time + '\'' +
+                ", calorie=" + calorie +
+                ", user=" + user +
+                '}';
+    }
+
     @Builder
     public Exercise(String title, String body, ExerciseType exerciseType, double score, String  time, int calorie, User user) {
         this.title = title;
