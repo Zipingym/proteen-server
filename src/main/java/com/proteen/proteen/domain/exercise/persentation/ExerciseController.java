@@ -27,7 +27,7 @@ public class ExerciseController {
         exerciseService.register(request, user);
     }
 
-    @PostMapping("/{exerciseId}")
+    @PostMapping("/upload/video/{exerciseId}")
     @ResponseStatus(HttpStatus.OK)
     public void videoRegister(@RequestPart(value = "file", required = false) MultipartFile file,
                               @PathVariable(name = "exerciseId") Long exerciseId) {
