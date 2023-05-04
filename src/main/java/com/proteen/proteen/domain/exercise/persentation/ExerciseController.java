@@ -46,7 +46,7 @@ public class ExerciseController {
         return exerciseService.getExcrciseList(user);
     }
 
-    @GetMapping("/asdf")
+    @GetMapping("/ranking")
     public List<ExerciseRankingInterface> getRanking() {
         return exerciseService.ranking();
     }
