@@ -2,6 +2,7 @@ package com.proteen.proteen.domain.exercise.domain;
 
 import com.proteen.proteen.domain.exercise.domain.type.ExerciseType;
 import com.proteen.proteen.domain.user.domain.User;
+import com.proteen.proteen.global.jpa.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Table
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Exercise {
+public class Exercise extends BaseTimeEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long exerciseId;
 

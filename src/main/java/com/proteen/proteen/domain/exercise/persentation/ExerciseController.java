@@ -2,6 +2,7 @@ package com.proteen.proteen.domain.exercise.persentation;
 
 import com.proteen.proteen.domain.exercise.domain.Exercise;
 import com.proteen.proteen.domain.exercise.persentation.dto.request.CreateRequest;
+import com.proteen.proteen.domain.exercise.persentation.dto.response.ExerciseRankingInterface;
 import com.proteen.proteen.domain.exercise.service.ExerciseService;
 import com.proteen.proteen.domain.user.domain.User;
 import com.proteen.proteen.global.annotation.CheckToken;
@@ -43,5 +44,10 @@ public class ExerciseController {
     @GetMapping("/get/list")
     public List<Exercise> getExerciseList(@RequestAttribute User user) {
         return exerciseService.getExcrciseList(user);
+    }
+
+    @GetMapping("/asdf")
+    public List<ExerciseRankingInterface> getRanking() {
+        return exerciseService.ranking();
     }
 }

@@ -4,6 +4,7 @@ import com.proteen.proteen.domain.exercise.domain.Exercise;
 import com.proteen.proteen.domain.exercise.domain.repository.ExerciseRepository;
 import com.proteen.proteen.domain.exercise.exception.ExerciseNotFoundException;
 import com.proteen.proteen.domain.exercise.persentation.dto.request.CreateRequest;
+import com.proteen.proteen.domain.exercise.persentation.dto.response.ExerciseRankingInterface;
 import com.proteen.proteen.domain.user.domain.User;
 import com.proteen.proteen.global.s3.S3Uploader;
 import lombok.RequiredArgsConstructor;
@@ -50,7 +51,7 @@ public class ExerciseService {
         return exerciseRepository.findAllByUser(user);
     }
 
-//    public List<RankingResponse> ranking(ExerciseType type) {
-//
-//    }
+    public List<ExerciseRankingInterface> ranking() {
+        return exerciseRepository.findAllByRanking();
+    }
 }

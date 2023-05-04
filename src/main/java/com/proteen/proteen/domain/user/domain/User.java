@@ -1,6 +1,7 @@
 package com.proteen.proteen.domain.user.domain;
 
 import com.proteen.proteen.domain.user.exception.SameOfPreviousPasswordException;
+import com.proteen.proteen.global.jpa.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Table(name = "user")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User {
+public class User extends BaseTimeEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
