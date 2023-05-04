@@ -23,6 +23,9 @@ public class AuthInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) {
 
+        log.info("[URL] : {}",request.getRequestURI());
+        log.info("[Status] : {}", response.getStatus());
+
         if (!(handler instanceof HandlerMethod)) {
             return true;
         }
