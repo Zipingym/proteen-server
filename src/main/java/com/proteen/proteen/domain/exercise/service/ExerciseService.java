@@ -2,6 +2,7 @@ package com.proteen.proteen.domain.exercise.service;
 
 import com.proteen.proteen.domain.exercise.domain.Exercise;
 import com.proteen.proteen.domain.exercise.domain.repository.ExerciseRepository;
+import com.proteen.proteen.domain.exercise.domain.type.ExerciseType;
 import com.proteen.proteen.domain.exercise.exception.ExerciseNotFoundException;
 import com.proteen.proteen.domain.exercise.persentation.dto.request.CreateRequest;
 import com.proteen.proteen.domain.exercise.persentation.dto.response.ExerciseRankingInterface;
@@ -41,8 +42,8 @@ public class ExerciseService {
     public void videoUpload(Long exerciseId, MultipartFile file) {
         Exercise exercise = exerciseRepository.findById(exerciseId)
                 .orElseThrow(RuntimeException::new);
-
-        exercise.injectFile(s3Uploader.uploadVideos(file));
+        String videoUrl = s3Uploader.uploadVideos(file);
+        exercise.injectFile(videoUrl);
     }
 
     public Exercise getExerciseById(Long exerciseId, User user) {
@@ -54,7 +55,7 @@ public class ExerciseService {
         return exerciseRepository.findAllByUser(user);
     }
 
-    public List<ExerciseRankingInterface> ranking() {
-        return exerciseRepository.findAllByRanking();
+    public List<ExerciseRankingInterface> ranking(ExerciseType exerciseType) {
+        return exerciseRepository.findAllByRanking(exerciseType.name());
     }
 }

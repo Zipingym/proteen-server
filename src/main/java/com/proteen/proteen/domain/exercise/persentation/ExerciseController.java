@@ -1,6 +1,7 @@
 package com.proteen.proteen.domain.exercise.persentation;
 
 import com.proteen.proteen.domain.exercise.domain.Exercise;
+import com.proteen.proteen.domain.exercise.domain.type.ExerciseType;
 import com.proteen.proteen.domain.exercise.persentation.dto.request.CreateRequest;
 import com.proteen.proteen.domain.exercise.persentation.dto.response.ExerciseRankingInterface;
 import com.proteen.proteen.domain.exercise.service.ExerciseService;
@@ -47,7 +48,7 @@ public class ExerciseController {
     }
 
     @GetMapping("/ranking")
-    public List<ExerciseRankingInterface> getRanking() {
-        return exerciseService.ranking();
+    public List<ExerciseRankingInterface> getRanking(@RequestParam(name = "exerciseType") ExerciseType exerciseType) {
+        return exerciseService.ranking(exerciseType);
     }
 }

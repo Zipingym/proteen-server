@@ -5,12 +5,14 @@ import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class S3Uploader {
@@ -33,12 +35,10 @@ public class S3Uploader {
                     new PutObjectRequest(bucket, originName, file.getInputStream(), objectMetadata)
                             .withCannedAcl(CannedAccessControlList.PublicRead)
             );
-
+            log.info(amazonS3Client.getUrl(bucket, originName).toString());
             return amazonS3Client.getUrl(bucket, originName).toString();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            amazonS3Client.shutdown();
         }
         return null;
     }
