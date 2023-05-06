@@ -23,6 +23,4 @@ public abstract class BaseTimeEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime modifiedDateTime;
 
-
-
 }
