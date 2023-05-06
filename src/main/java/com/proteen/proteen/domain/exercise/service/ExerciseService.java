@@ -9,13 +9,11 @@ import com.proteen.proteen.domain.exercise.persentation.dto.response.ExerciseRan
 import com.proteen.proteen.domain.user.domain.User;
 import com.proteen.proteen.global.s3.S3Uploader;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ExerciseService {
@@ -33,7 +31,6 @@ public class ExerciseService {
                 .calorie(request.getCalorie())
                 .build();
 
-        log.info(exercise.toString());
         exercise.injectUser(user);
 
         exerciseRepository.save(exercise);
@@ -41,7 +38,7 @@ public class ExerciseService {
 
     public void videoUpload(Long exerciseId, MultipartFile file) {
         Exercise exercise = exerciseRepository.findById(exerciseId)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(() -> ExerciseNotFoundException.EXCEPTION);
         String videoUrl = s3Uploader.uploadVideos(file);
         exercise.injectFile(videoUrl);
     }

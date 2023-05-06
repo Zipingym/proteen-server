@@ -1,6 +1,8 @@
 package com.proteen.proteen.domain.user.service;
 
 import com.proteen.proteen.domain.user.domain.User;
+import com.proteen.proteen.domain.user.domain.UserDailyLogin;
+import com.proteen.proteen.domain.user.domain.repository.UserDailyLoginRepository;
 import com.proteen.proteen.domain.user.domain.repository.UserRepository;
 import com.proteen.proteen.domain.user.exception.UserIdExistsException;
 import com.proteen.proteen.domain.user.exception.UserNameExistsException;
@@ -15,11 +17,15 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
+    private final UserDailyLoginRepository userDailyLoginRepository;
     private final JwtProvider jwtProvider;
 
     @Transactional
@@ -53,6 +59,13 @@ public class UserService {
         if (!request.getPassword().equals(user.getPassword())) {
             throw UserPasswordMatchException.EXCEPTION;
         }
+
+        UserDailyLogin dailyLogin = UserDailyLogin.builder()
+                .userId(user.getUserId())
+                .date(LocalDate.now())
+                .build();
+
+        userDailyLoginRepository.save(dailyLogin);
 
         String accessToken = jwtProvider.createToken(user, TokenType.ACCESS);
         String refreshToken = jwtProvider.createToken(user, TokenType.REFRESH);

@@ -7,4 +7,8 @@ public interface ExerciseRankingInterface {
     String getName();
 
     Integer getTotal_calories();
+
+    Integer getTotal_Time();
+
+    Integer getAttendance();
 }

@@ -26,6 +26,7 @@ public class User extends BaseTimeEntity {
 
     private String gender;
 
+
     public void updatePassword(String previousPassword, String newPassword) {
         if (previousPassword.equals(newPassword)){
             throw SameOfPreviousPasswordException.EXCEPTION;
