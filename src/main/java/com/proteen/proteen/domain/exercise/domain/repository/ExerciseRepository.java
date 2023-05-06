@@ -19,7 +19,7 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
     @Query(value = "select avg(e.score) as avg_score, u.name, " +
             "sum(e.calorie) as total_calories, " +
             "sum(coalesce(e.time, 0)) as total_time, " +
-            "(SELECT TIMESTAMPDIFF(DAY, MAX(b.Date), CAST(UTC_TIMESTAMP() AS DATE)) as attendance " +
+            "(SELECT TIMESTAMPDIFF(DAY, MAX(b.Date), CAST(UTC_TIMESTAMP() AS DATE)) as attendance    " +
             "FROM DateHelper b " +
             "LEFT OUTER JOIN user_daily_login a ON a.Date = b.Date AND a.User_Id = u.user_id " +
             "WHERE b.Date <= CAST(UTC_TIMESTAMP() AS DATE) AND a.Date IS NULL) as attendance " +

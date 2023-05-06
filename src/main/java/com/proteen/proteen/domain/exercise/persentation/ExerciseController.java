@@ -23,13 +23,13 @@ public class ExerciseController {
 
     @CheckToken
     @PostMapping
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     public void register(@RequestBody CreateRequest request, @RequestAttribute User user) {
         exerciseService.register(request, user);
     }
 
     @PostMapping("/upload/video/{exerciseId}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     public void videoRegister(@RequestPart(value = "file", required = false) MultipartFile file,
                               @PathVariable(name = "exerciseId") Long exerciseId) {
         exerciseService.videoUpload(exerciseId, file);

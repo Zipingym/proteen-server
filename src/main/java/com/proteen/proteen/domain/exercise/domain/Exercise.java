@@ -8,7 +8,9 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Entity
 @Getter
 @Table
@@ -41,6 +43,21 @@ public class Exercise extends BaseTimeEntity {
 
     public void injectFile(String videoUrl) {
         this.videoUrl = videoUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "exerciseId=" + exerciseId +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                ", exerciseType=" + exerciseType +
+                ", videoUrl='" + videoUrl + '\'' +
+                ", score=" + score +
+                ", time=" + time +
+                ", calorie=" + calorie +
+                ", user=" + user +
+                '}';
     }
 
     @Builder
