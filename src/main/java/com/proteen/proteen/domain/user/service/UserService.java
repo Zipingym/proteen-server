@@ -71,8 +71,4 @@ public class UserService {
 
         return new UserLoginTokenResponse(accessToken, refreshToken);
     }
-
-    public User getUserInfo(User user) {
-        return user;
-    }
 }

@@ -8,7 +8,9 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Getter
 @MappedSuperclass
@@ -16,11 +18,19 @@ import java.time.LocalDateTime;
 public abstract class BaseTimeEntity {
 
     @CreatedDate
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime createDateTime;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate createDate;
+
+    @CreatedDate
+    @JsonFormat(pattern = "HH:mm:ss")
+    private LocalTime createTime;
 
     @LastModifiedDate
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime modifiedDateTime;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDateTime modifiedDate;
+
+    @LastModifiedDate
+    @JsonFormat(pattern = "HH:mm:ss")
+    private LocalTime modifiedTime;
 
 }
