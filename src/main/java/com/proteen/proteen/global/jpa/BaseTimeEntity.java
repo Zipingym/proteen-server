@@ -27,7 +27,7 @@ public abstract class BaseTimeEntity {
 
     @LastModifiedDate
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime modifiedDate;
+    private LocalDate modifiedDate;
 
     @LastModifiedDate
     @JsonFormat(pattern = "HH:mm:ss")
