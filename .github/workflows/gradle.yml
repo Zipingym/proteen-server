@@ -24,9 +24,9 @@ jobs:
         distribution: 'temurin'
 
     - name: Set yml
-      uses: actions/set-yml@v2
+      uses: microsoft/variable-substitution@v1
       with:
-        files: ./src/main/resources/application.yml
+        files: ../src/main/resources/application.yml
       env:
         spring.datasource.url: ${{ secrets.DB_URL }}
         spring.datasource.username: ${{ secrets.DB_USERNAME }}
