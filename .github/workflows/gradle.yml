@@ -24,6 +24,7 @@ jobs:
         distribution: 'temurin'
 
     - name: Set yml
+      uses: actions/set-yml@v2
       with:
         files: ./src/main/resources/application.yml
       env:
