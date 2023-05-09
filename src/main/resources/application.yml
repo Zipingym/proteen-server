@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
-    url: jdbc:mysql://${DB_URL}
+    url: ${DB_URL}
   jpa:
     show-sql: false
     generate-ddl: true
