@@ -9,7 +9,6 @@ import com.proteen.proteen.domain.exercise.persentation.dto.response.ExerciseRan
 import com.proteen.proteen.domain.user.domain.User;
 import com.proteen.proteen.global.s3.S3Uploader;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -49,7 +48,11 @@ public class ExerciseService {
                 .orElseThrow(() -> ExerciseNotFoundException.EXCEPTION);
     }
 
-    public List<Exercise> getExcrciseList(User user) {
+    public List<Exercise> getExcrciseList() {
+        return exerciseRepository.findAll();
+    }
+
+    public List<Exercise> getExcrciseListByUser(User user) {
         return exerciseRepository.findAllByUser(user);
     }
 

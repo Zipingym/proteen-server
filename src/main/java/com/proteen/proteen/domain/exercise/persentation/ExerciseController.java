@@ -43,8 +43,8 @@ public class ExerciseController {
 
     @CheckToken
     @GetMapping("/get/list")
-    public List<Exercise> getExerciseList(@RequestAttribute User user) {
-        return exerciseService.getExcrciseList(user);
+    public List<Exercise> getExerciseList() {
+        return exerciseService.getExcrciseList();
     }
 
     @GetMapping("/ranking")

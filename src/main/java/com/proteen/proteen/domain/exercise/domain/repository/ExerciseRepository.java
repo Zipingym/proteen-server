@@ -16,6 +16,8 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
     Optional<Exercise> findByExerciseIdAndUser(Long exerciseId, User user);
     List<Exercise> findAllByUser(User user);
 
+    List<Exercise> findAll();
+
     @Query(value = "select avg(e.score) as avg_score, u.name, " +
             "sum(e.calorie) as total_calories, " +
             "sum(coalesce(e.time, 0)) as total_time, " +
