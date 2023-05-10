@@ -31,7 +31,7 @@ public class Exercise extends BaseTimeEntity {
 
     private int calorie;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "user_Id")
     private User user;
 
