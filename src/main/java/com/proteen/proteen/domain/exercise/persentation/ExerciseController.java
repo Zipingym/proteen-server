@@ -41,7 +41,6 @@ public class ExerciseController {
         return exerciseService.getExerciseById(exerciseId, user);
     }
 
-    @CheckToken
     @GetMapping("/get/list")
     public List<Exercise> getExerciseList() {
         return exerciseService.getExcrciseList();
