@@ -3,6 +3,7 @@ package com.proteen.proteen.domain.exercise.persentation;
 import com.proteen.proteen.domain.exercise.domain.Exercise;
 import com.proteen.proteen.domain.exercise.domain.type.ExerciseType;
 import com.proteen.proteen.domain.exercise.persentation.dto.request.CreateRequest;
+import com.proteen.proteen.domain.exercise.persentation.dto.response.ExerciseIdResponse;
 import com.proteen.proteen.domain.exercise.persentation.dto.response.ExerciseRankingInterface;
 import com.proteen.proteen.domain.exercise.service.ExerciseService;
 import com.proteen.proteen.domain.user.domain.User;
@@ -24,8 +25,8 @@ public class ExerciseController {
     @CheckToken
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void register(@RequestBody CreateRequest request, @RequestAttribute User user) {
-        exerciseService.register(request, user);
+    public ExerciseIdResponse register(@RequestBody CreateRequest request, @RequestAttribute User user) {
+        return exerciseService.register(request, user);
     }
 
     @PostMapping("/upload/video/{exerciseId}")

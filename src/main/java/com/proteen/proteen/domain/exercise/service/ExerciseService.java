@@ -5,6 +5,7 @@ import com.proteen.proteen.domain.exercise.domain.repository.ExerciseRepository;
 import com.proteen.proteen.domain.exercise.domain.type.ExerciseType;
 import com.proteen.proteen.domain.exercise.exception.ExerciseNotFoundException;
 import com.proteen.proteen.domain.exercise.persentation.dto.request.CreateRequest;
+import com.proteen.proteen.domain.exercise.persentation.dto.response.ExerciseIdResponse;
 import com.proteen.proteen.domain.exercise.persentation.dto.response.ExerciseRankingInterface;
 import com.proteen.proteen.domain.user.domain.User;
 import com.proteen.proteen.global.s3.S3Uploader;
@@ -21,7 +22,7 @@ public class ExerciseService {
     private final S3Uploader s3Uploader;
     private final ExerciseRepository exerciseRepository;
 
-    public void register(CreateRequest request, User user) {
+    public ExerciseIdResponse register(CreateRequest request, User user) {
         Exercise exercise = Exercise.builder()
                 .title(request.getTitle())
                 .body(request.getBody())
@@ -33,6 +34,10 @@ public class ExerciseService {
 
         exercise.injectUser(user);
         exerciseRepository.save(exercise);
+
+        return ExerciseIdResponse.builder()
+                .exerciseId(exercise.getExerciseId())
+                .build();
     }
 
     public void videoUpload(Long exerciseId, MultipartFile file) {
